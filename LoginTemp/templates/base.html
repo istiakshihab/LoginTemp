@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src={% static 'idea.png' %} width="25" height="25"
+                     class="d-inline-block align-top">
+                Project DBMS
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item disabled">
+                        <a class="nav-link" href="#">Profile</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto ">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item ">
+                            <a class="nav-link"
+                               href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+                            <form id="logout" method="post" action="{% url 'logout' %}">
+                                {% csrf_token %}
+                                <input type="hidden"/>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-item {% if nbar == 'signup' %}active{% endif %}">
+                            <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+                        </li>
+                        <li class="nav-item {% if nbar == 'login' %}active{% endif %}">
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+{% block content %}
+{% endblock %}
+
+</body>

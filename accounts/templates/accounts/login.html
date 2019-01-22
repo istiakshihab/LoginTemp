@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'base.html' %}
+{% block content %}
+    <body>
+    <br>
+    <blockquote class="blockquote text-center">
+        <p class="mb-0">
+        <h1>Welcome to our Website!</h1></p>
+        <footer class="blockquote-footer"><cite title="Source Title">Team SSFC</cite></footer>
+    </blockquote>
+
+    <div class="container">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <br>
+            <div class="form-group">
+                <label for="InputUser">Username</label>
+                <input type="text" class="form-control" name="InputUser" aria-describedby="userHelp"
+                       placeholder="Enter Username">
+                <small id="userHelp" class="form-text text-muted">Username should be unique</small>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword">Password</label>
+                <input type="password" class="form-control" name="inputPassword"
+                       placeholder="Password">
+            </div>
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    Username or Password is incorrect!
+                </div>
+            {% else %}
+                <br>
+            {% endif %}
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+
+    </body>
+{% endblock %}
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% block content%}
+<body>
+
+{% if user.is_authenticated %}
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-4">Success</h1>
+                <p class="lead">You have successfully Logged In!</p>
+            </div>
+        </div>
+    <br>
+    <div class="container">
+        <div style="text-align: center">
+            <img src="https://i.dailymail.co.uk/i/pix/2016/03/18/15/324D202500000578-3498922-image-a-33_1458315465874.jpg" height="300px" >
+        </div>
+    </div>
+{% else %}
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-4">Welcome</h1>
+                <p class="lead">This will be our homepage!</p>
+            </div>
+        </div>
+    <br>
+    <div class="container">
+        <div style="text-align: center">
+            <img src="https://static.comicvine.com/uploads/original/15/150109/4147321-batman+35+image+3.jpg" class="img-fluid" >
+        </div>
+    </div>
+{% endif %}
+</body>
+{% endblock %}
