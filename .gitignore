@@ -1,0 +1,7 @@
+*.pyc
+*.xml
+.idea/dataSources.xml
+.idea/LoginTemp.iml
+.idea/misc.xml
+.idea/vcs.xml
+*.meta
