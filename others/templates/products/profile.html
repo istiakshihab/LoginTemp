@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<title>Profile</title>
 {% extends 'base.html' %}
 {% block content %}
     <body xmlns:width="http://www.w3.org/1999/xhtml">
@@ -12,7 +12,7 @@
 
             <p style="font-family: 'Signika', sans-serif;" class="card-text">Username: {{ request.user.username }}</p>
             <p style="font-family: 'Signika', sans-serif;" class="card-text">Email Address: {{ request.user.email }}</p>
-            <p style="font-family: 'Signika', sans-serif;" class="card-text">Sessio From: {{ request.user.last_login }}</p>
+            <p style="font-family: 'Signika', sans-serif;" class="card-text">Session From: {{ request.user.last_login }}</p>
             <a style="font-family: 'Signika', sans-serif;" href="{% url 'home' %}" class="btn btn-primary">Go Home!</a>
         </div>
     </div>
