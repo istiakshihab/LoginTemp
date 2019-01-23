@@ -11,7 +11,7 @@
         <footer class="blockquote-footer"><cite title="Source Title">Team SSFC</cite></footer>
     </blockquote>
 
-    <div class="container">
+    <div class="card container" style="width: 50rem">
         <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
             <br>
@@ -36,6 +36,8 @@
             {% endif %}
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
+
+    <hr>
     </div>
 
     </body>

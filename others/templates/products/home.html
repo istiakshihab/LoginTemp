@@ -7,7 +7,7 @@
 {% if user.is_authenticated %}
         <div class="jumbotron">
             <div class="container">
-                <h1 class="display-4">Success</h1>
+                <h1 class="display-4" style="font-family: 'Catamaran', sans-serif;">Success</h1>
                 <p class="lead">You have successfully Logged In!</p>
             </div>
         </div>
@@ -22,6 +22,10 @@
             <div class="container">
                 <h1 class="display-4">Welcome</h1>
                 <p class="lead">This will be our homepage!</p>
+                <div align="center">
+                    <a href="{% url 'signup' %}" class="btn btn-success">Sign up</a>
+                    <a href="{% url 'login' %}" class="btn btn-success">Login</a>
+                </div>
             </div>
         </div>
     <br>
@@ -33,3 +37,4 @@
 {% endif %}
 </body>
 {% endblock %}
+
