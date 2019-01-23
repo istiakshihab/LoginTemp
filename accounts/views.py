@@ -18,7 +18,9 @@ def signup(request):
                                                 password=request.POST['inputPassword1'],
                                                 first_name=request.POST['firstName'],
                                                 last_name=request.POST['lastName'],
-                                                email=request.POST['emailAddress'])
+                                                email=request.POST['emailAddress'],
+
+                                                )
                 auth.login(request, user)
                 return redirect('home')
     else:
@@ -34,7 +36,7 @@ def login(request):
             return redirect('home')
         else:
             return render(request, 'accounts/login.html',
-                          {'error': ''})
+                          {'error': 'Somethings Wrong!'})
     else:
         return render(request, 'accounts/login.html', {'nbar': 'login'})
 

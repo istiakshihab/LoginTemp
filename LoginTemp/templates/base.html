@@ -5,15 +5,18 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
           crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
 </head>
 <body>
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">
+        <div class="container" >
+            <a class="navbar-brand" href="{% url 'home' %}" style="font-family: 'Pacifico', cursive;" >
                 <img src={% static 'idea.png' %} width="25" height="25"
-                     class="d-inline-block align-top">
-                Project DBMS
+                     class="d-inline-block align-top" >
+                Project Dbms
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -21,27 +24,22 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item disabled">
-                        <a class="nav-link" href="#">Profile</a>
+                        <a class="nav-link" href="{% url 'profile' %}" style="font-family: 'Signika', sans-serif;">Profile</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto ">
+                {% endif %}
+                <ul class="nav navbar-nav ml-auto ">
                     {% if user.is_authenticated %}
                         <li class="nav-item ">
-                            <a class="nav-link"
+                            <a class="nav-link" style="font-family: 'Signika', sans-serif;"
                                href="javascript:{document.getElementById('logout').submit()}">Logout</a>
                             <form id="logout" method="post" action="{% url 'logout' %}">
                                 {% csrf_token %}
                                 <input type="hidden"/>
                             </form>
-                        </li>
-                    {% else %}
-                        <li class="nav-item {% if nbar == 'signup' %}active{% endif %}">
-                            <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
-                        </li>
-                        <li class="nav-item {% if nbar == 'login' %}active{% endif %}">
-                            <a class="nav-link" href="{% url 'login' %}">Login</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -52,5 +50,5 @@
 
 {% block content %}
 {% endblock %}
-
+    <div style="Height:100px"></div>
 </body>

@@ -1,3 +1,4 @@
+
 *.pyc
 *.xml
 .idea/dataSources.xml
@@ -6,3 +7,9 @@
 .idea/vcs.xml
 *.meta
 *.xml
+
+
+*.pyc
+*.xml
+*.meta
+
